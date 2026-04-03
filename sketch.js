@@ -23,7 +23,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noCursor();
   canvas = createGraphics(windowWidth, windowHeight);
-  canvas.background(128);
+  canvas.background(255);
   interval = random(1000, 3000);
   randomXSpeed = random() - 0.5;
   randomYSpeed = random() - 0.5;
@@ -80,35 +80,35 @@ function drawEraser(x, y) {
 
   // eraser chilling
   if (randomXSpeed === 0 && randomYSpeed === 0) {
-    fill("#554400");
+    fill("#887700");
     rect(x, y, 30, 20);
-    fill("#c0c0c0");
+    fill("#bbbbbb");
     rect(x + 30, y, 15, 20);
   }
 
   // eraser face right and moving
   if (randomXSpeed > 0) {
     // erase the drawing
-    canvas.fill(128);
+    canvas.fill(255);
     canvas.rect(x + 30, y, 15, 20);
 
     // draw eraser
-    fill("#554400");
+    fill("#887700");
     rect(x, y, 30, 20);
-    fill("#c0c0c0");
+    fill("#bbbbbb");
     rect(x + 30, y, 15, 20);
   }
 
   // eraser face left and moving
   if (randomXSpeed < 0) {
     // erase the drawing
-    canvas.fill(128);
+    canvas.fill(255);
     canvas.rect(x, y, 15, 20);
 
     // draw eraser
-    fill("#554400");
+    fill("#887700");
     rect(x + 15, y, 30, 20);
-    fill("#c0c0c0");
+    fill("#bbbbbb");
     rect(x, y, 15, 20);
   }
 
@@ -122,7 +122,7 @@ function drawPencil(x, y) {
   rotate(-PI / 8);
 
   noStroke();
-  fill("#332200");
+  fill("#887700");
   rect(-4, 8, 8, 16);
 
   fill("#000");
