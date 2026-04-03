@@ -1,6 +1,6 @@
 let drawing = false;
-let eraserX = 300;
-let eraserY = 300;
+let eraserX = 0;
+let eraserY = 0;
 let canvas;
 let interval = 0;
 let timer = 0;
@@ -22,6 +22,8 @@ function windowResized() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noCursor();
+  eraserX = windowWidth / 2;
+  eraserY = windowHeight / 2;
   canvas = createGraphics(windowWidth, windowHeight);
   canvas.background(255);
   interval = random(1000, 3000);
@@ -60,14 +62,14 @@ function draw() {
   if (eraserX < 0) {
     eraserX = 0;
   }
-  if (eraserX > windowWidth - 55) {
-    eraserX = windowWidth - 55;
+  if (eraserX > windowWidth - 45) {
+    eraserX = windowWidth - 45;
   }
   if (eraserY < 0) {
     eraserY = 0;
   }
-  if (eraserY > windowHeight - 30) {
-    eraserY = windowHeight - 30;
+  if (eraserY > windowHeight - 20) {
+    eraserY = windowHeight - 20;
   }
 
   drawPencil(mouseX, mouseY);
@@ -80,7 +82,7 @@ function drawEraser(x, y) {
 
   // eraser chilling
   if (randomXSpeed === 0 && randomYSpeed === 0) {
-    fill("#887700");
+    fill("#806400");
     rect(x, y, 30, 20);
     fill("#bbbbbb");
     rect(x + 30, y, 15, 20);
@@ -93,7 +95,7 @@ function drawEraser(x, y) {
     canvas.rect(x + 30, y, 15, 20);
 
     // draw eraser
-    fill("#887700");
+    fill("#806400");
     rect(x, y, 30, 20);
     fill("#bbbbbb");
     rect(x + 30, y, 15, 20);
@@ -106,7 +108,7 @@ function drawEraser(x, y) {
     canvas.rect(x, y, 15, 20);
 
     // draw eraser
-    fill("#887700");
+    fill("#806400");
     rect(x + 15, y, 30, 20);
     fill("#bbbbbb");
     rect(x, y, 15, 20);
@@ -122,7 +124,7 @@ function drawPencil(x, y) {
   rotate(-PI / 8);
 
   noStroke();
-  fill("#887700");
+  fill("#806400");
   rect(-4, 8, 8, 16);
 
   fill("#000");
